@@ -1,17 +1,20 @@
 package com.blogspot.tsprates.arvore_binaria;
 
-public class No {
+public class No
+{
 
-    private int valor;
+    private final int valor;
 
     public No direita, esquerda;
 
-    public No(int valor) {
-	this.valor = valor;
+    public No(int valor)
+    {
+        this.valor = valor;
     }
 
-    public int getValor() {
-	return valor;
+    public int getValor()
+    {
+        return valor;
     }
 
 }
