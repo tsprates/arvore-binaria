@@ -71,45 +71,39 @@ public class ArvoreBinaria
             {
                 atualizaFilho(valor, iterPai, null);
             }
+            else if (iter.direita != null && iter.esquerda == null)
+            {
+                atualizaFilho(valor, iterPai, iter.direita);
+            }
+            else if (iter.direita == null && iter.esquerda != null)
+            {
+                atualizaFilho(valor, iterPai, iter.esquerda);
+            }
             else
             {
-                if (iter.direita != null && iter.esquerda == null)
+                if (iter.direita != null && iter.esquerda != null)
                 {
-                    atualizaFilho(valor, iterPai, iter.direita);
-                }
-                else
-                {
-                    if (iter.direita == null && iter.esquerda != null)
+                    No aux = iter.direita;
+                    No paiAux = iter;
+
+                    do
                     {
-                        atualizaFilho(valor, iterPai, iter.esquerda);
+                        paiAux = aux;
+                        aux = aux.esquerda;
+                    }
+                    while (aux != null && aux.esquerda != null);
+
+                    if (aux == null)
+                    {
+                        atualizaFilho(valor, iterPai, paiAux);
+                        paiAux.esquerda = iter.esquerda;
                     }
                     else
                     {
-                        if (iter.direita != null && iter.esquerda != null)
-                        {
-                            No aux = iter.direita;
-                            No paiAux = iter;
-
-                            do
-                            {
-                                paiAux = aux;
-                                aux = aux.esquerda;
-                            }
-                            while (aux != null && aux.esquerda != null);
-
-                            if (aux == null)
-                            {
-                                atualizaFilho(valor, iterPai, paiAux);
-                                paiAux.esquerda = iter.esquerda;
-                            }
-                            else
-                            {
-                                atualizaFilho(valor, iterPai, aux);
-                                aux.direita = iter.direita;
-                                aux.esquerda = iter.esquerda;
-                                paiAux.esquerda = null;
-                            }
-                        }
+                        atualizaFilho(valor, iterPai, aux);
+                        aux.direita = iter.direita;
+                        aux.esquerda = iter.esquerda;
+                        paiAux.esquerda = null;
                     }
                 }
             }
