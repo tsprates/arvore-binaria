@@ -5,7 +5,11 @@ public class ArvoreBinaria
 
     private No raiz = null;
 
-    public final static int EM_ORDEM = 1, PRE_ORDEM = 2, POS_ORDEM = 3;
+    public enum Ordem
+    {
+
+        EM_ORDEM, PRE_ORDEM, POS_ORDEM
+    }
 
     public void adiciona(No no)
     {
@@ -144,26 +148,26 @@ public class ArvoreBinaria
 
     public String emOrdem()
     {
-        return getOrdem(EM_ORDEM);
+        return getOrdem(Ordem.EM_ORDEM);
     }
 
     public String preOrdem()
     {
-        return getOrdem(PRE_ORDEM);
+        return getOrdem(Ordem.PRE_ORDEM);
     }
 
     public String posOrdem()
     {
-        return getOrdem(POS_ORDEM);
+        return getOrdem(Ordem.POS_ORDEM);
     }
 
-    public String getOrdem(int tipoOrdem)
+    public String getOrdem(Ordem ordem)
     {
         StringBuilder sb = new StringBuilder("[");
 
         if (raiz != null)
         {
-            switch (tipoOrdem)
+            switch (ordem)
             {
                 case PRE_ORDEM:
                     preOrdem(raiz, sb);

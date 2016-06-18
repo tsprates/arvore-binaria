@@ -115,7 +115,7 @@ public class AppTest
     {
         arv.adiciona(new No(2));
         arv.remove(2);
-        assertEquals("[]", arv.getOrdem(ArvoreBinaria.EM_ORDEM));
+        assertEquals("[]", arv.getOrdem(ArvoreBinaria.Ordem.EM_ORDEM));
     }
 
     @Test
