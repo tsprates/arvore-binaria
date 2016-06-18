@@ -1,14 +1,14 @@
 package com.blogspot.tsprates.arvore_binaria;
 
+
 public class ArvoreBinaria
 {
 
     private No raiz = null;
 
-    public enum Ordem
+    public enum TipoOrdem
     {
-
-        EM_ORDEM, PRE_ORDEM, POS_ORDEM
+	EM_ORDEM, PRE_ORDEM, POS_ORDEM
     }
 
     public void adiciona(No no)
@@ -148,20 +148,20 @@ public class ArvoreBinaria
 
     public String emOrdem()
     {
-        return getOrdem(Ordem.EM_ORDEM);
+        return getOrdem(TipoOrdem.EM_ORDEM);
     }
 
     public String preOrdem()
     {
-        return getOrdem(Ordem.PRE_ORDEM);
+        return getOrdem(TipoOrdem.PRE_ORDEM);
     }
 
     public String posOrdem()
     {
-        return getOrdem(Ordem.POS_ORDEM);
+        return getOrdem(TipoOrdem.POS_ORDEM);
     }
 
-    public String getOrdem(Ordem ordem)
+    public String getOrdem(TipoOrdem ordem)
     {
         StringBuilder sb = new StringBuilder("[");
 
